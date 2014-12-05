@@ -17,7 +17,7 @@ NeuralNetwork(structure::Tuple, disable_bias::Bool) = NeuralNetwork(
   disable_bias,
   0.25,
   0.1,
-  () -> randi(2000)/1000.0 - 1,
+  () -> rand(0:2000)/1000.0 - 1,
   (x::Float64) -> 1/(1+exp(-1*(x))),
   (y::Float64) -> y*(1-y),
   (),
