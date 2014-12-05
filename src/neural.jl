@@ -54,7 +54,7 @@ function init_weights(network::NeuralNetwork)
   for i in 1:length(network.structure)-1
     arr = Array(Float64, length(network.activation_nodes[i]), network.structure[i+1])
 
-    for j=1:numel(arr)
+    for j=1:length(arr)
       arr[j] = network.initial_weight_function()
     end
 
