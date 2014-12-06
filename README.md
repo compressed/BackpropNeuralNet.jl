@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/compressed/neural.jl.svg?branch=master)](https://travis-ci.org/compressed/neural.jl)
+
 This is a Julia implementation of a neural network based on Sergio Fierens [ruby version](https://github.com/SergioFierens/ai4r).
 
 Basic Usage
