@@ -1,4 +1,4 @@
-load("src/neural.jl")
+using Neural
 
 net = init_network([2, 2, 2])
 
