@@ -17,7 +17,7 @@ NeuralNetwork(structure::Array{Int64, 1}, disable_bias::Bool) = NeuralNetwork(
   disable_bias,
   0.25,
   0.1,
-  () -> randi(2000)/1000.0 - 1,
+  () -> rand(0:2000)/1000.0 - 1,
   (x::Float64) -> 1/(1+exp(-1*(x))),
   (y::Float64) -> y*(1-y),
   {},
@@ -51,7 +51,7 @@ function init_weights(network::NeuralNetwork)
   for i in 1:length(network.structure)-1
     arr = Array(Float64, length(network.activation_nodes[i]), network.structure[i+1])
 
-    for j=1:numel(arr)
+    for j=1:length(arr)
       arr[j] = network.initial_weight_function()
     end
 
