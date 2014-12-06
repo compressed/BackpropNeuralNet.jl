@@ -1,3 +1,5 @@
+module Neural
+
 type NeuralNetwork
   structure::Array{Int64, 1}
   disable_bias::Bool
@@ -165,4 +167,6 @@ function check_output_dimension(network::NeuralNetwork, outputs::Vector{Float64}
           strcat("Expected: ", network.structure[end], "\n"),
           strcat("Received: ", length(outputs)))
   end
+end
+
 end
