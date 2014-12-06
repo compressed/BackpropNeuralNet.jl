@@ -1,18 +1,18 @@
 type NeuralNetwork
-  structure::Tuple
+  structure::Array{Int64, 1}
   disable_bias::Bool
   learning_rate::Float64
   momentum::Float64
   initial_weight_function::Function
   propagation_function::Function
   derivative_propagation_function::Function
-  activation_nodes::Tuple
-  weights::Tuple
-  last_changes::Tuple
-  deltas::Tuple
+  activation_nodes::Array{Any, 1}
+  weights::Array{Any, 1}
+  last_changes::Array{Any, 1}
+  deltas::Array{Any, 1}
 end
 
-NeuralNetwork(structure::Tuple, disable_bias::Bool) = NeuralNetwork(
+NeuralNetwork(structure::Array{Int64, 1}, disable_bias::Bool) = NeuralNetwork(
   structure,
   disable_bias,
   0.25,
@@ -20,13 +20,13 @@ NeuralNetwork(structure::Tuple, disable_bias::Bool) = NeuralNetwork(
   () -> randi(2000)/1000.0 - 1,
   (x::Float64) -> 1/(1+exp(-1*(x))),
   (y::Float64) -> y*(1-y),
-  (),
-  (),
-  (),
-  ()
+  {},
+  {},
+  {},
+  {}
 )
 
-function init_network(structure::Tuple)
+function init_network(structure::Array{Int64,1})
   network = NeuralNetwork(structure, false)
   init_activation_nodes(network)
   init_weights(network)
@@ -35,22 +35,19 @@ function init_network(structure::Tuple)
 end
 
 function init_activation_nodes(network::NeuralNetwork)
-  t = ()
-
+  network.activation_nodes = {}
   # for each layer in network, build 1.0 matrices
   for i in 1:length(network.structure)
     if !network.disable_bias && i < length(network.structure)
-      t = tuple(t...,ones(network.structure[i]+1))
+      push(network.activation_nodes, ones(network.structure[i] + 1))
     else
-      t = tuple(t...,ones(network.structure[i]))
+      push(network.activation_nodes, ones(network.structure[i]))
     end
   end
-
-  network.activation_nodes = t
 end
 
 function init_weights(network::NeuralNetwork)
-  t = ()
+  network.weights = {}
   for i in 1:length(network.structure)-1
     arr = Array(Float64, length(network.activation_nodes[i]), network.structure[i+1])
 
@@ -58,19 +55,16 @@ function init_weights(network::NeuralNetwork)
       arr[j] = network.initial_weight_function()
     end
 
-    t = tuple(t..., arr)
+    push(network.weights, arr)
   end
-  network.weights = t
 end
 
-
 function init_last_changes(network::NeuralNetwork)
-  t = ()
+  network.last_changes = {}
 
   for i=network.weights
-    t = tuple(t..., [zeros(size(i))])
+    push(network.last_changes, [zeros(size(i))])
   end
-  network.last_changes = t
 end
 
 function train(network::NeuralNetwork, inputs::Vector{Float64}, outputs::Vector{Float64})
@@ -115,7 +109,7 @@ function calculate_output_deltas(network::NeuralNetwork, expected_values::Vector
   for i=1:length(err)
     output_deltas[i] = network.derivative_propagation_function(output_values[i]) * err[i]
   end
-  network.deltas = tuple(output_deltas)
+  network.deltas = {output_deltas}
 end
 
 function calculate_internal_deltas(network::NeuralNetwork)
@@ -129,7 +123,7 @@ function calculate_internal_deltas(network::NeuralNetwork)
       end
       layer_deltas[j] = network.derivative_propagation_function(network.activation_nodes[layer_index][j]) * err
     end
-    network.deltas = tuple(layer_deltas, network.deltas...)
+    unshift(network.deltas, layer_deltas)
   end
 end
 
