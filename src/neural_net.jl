@@ -1,5 +1,3 @@
-module Neural
-
 type NeuralNetwork
   structure::Array{Int64, 1}
   disable_bias::Bool
@@ -75,7 +73,7 @@ function train(network::NeuralNetwork, inputs::Vector{Float64}, outputs::Vector{
   calculate_error(network, outputs)
 end
 
-function net_eval(network::NeuralNetwork, inputs::Vector{Float64})
+function eval(network::NeuralNetwork, inputs::Vector{Float64})
   check_input_dimension(network, inputs)
   if length(network.weights) == 0
     init_network(network)
@@ -167,6 +165,4 @@ function check_output_dimension(network::NeuralNetwork, outputs::Vector{Float64}
           strcat("Expected: ", network.structure[end], "\n"),
           strcat("Received: ", length(outputs)))
   end
-end
-
 end
