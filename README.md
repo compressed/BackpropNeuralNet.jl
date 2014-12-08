@@ -16,7 +16,7 @@ net = init_network([2, 3, 2])
 train(net, [0.15, 0.7],[0.1, 0.9])
 
 # To evaluate an input use the form `net_eval(network, inputs)`
-eval(net, [0.15, 0.7])
+net_eval(net, [0.15, 0.7])
 ```
 
 # History
