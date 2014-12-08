@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/compressed/Neural.jl.svg?branch=master)](https://travis-ci.org/compressed/Neural.jl)
+[![Build Status](https://travis-ci.org/compressed/neural.jl.svg?branch=master)](https://travis-ci.org/compressed/neural.jl)
 
 # Basic Usage
 
