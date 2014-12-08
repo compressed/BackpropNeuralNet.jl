@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/compressed/neural.jl.svg?branch=master)](https://travis-ci.org/compressed/neural.jl)
+[![Build Status](https://travis-ci.org/compressed/Neural.jl.svg?branch=master)](https://travis-ci.org/compressed/Neural.jl)
 [![Coverage Status](https://img.shields.io/coveralls/compressed/Neural.jl.svg)](https://coveralls.io/r/compressed/Neural.jl)
 [![Neural](http://pkg.julialang.org/badges/Neural_release.svg)](http://pkg.julialang.org/?pkg=Neural&ver=release)
 
