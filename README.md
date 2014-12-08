@@ -1,9 +1,13 @@
 [![Build Status](https://travis-ci.org/compressed/Neural.jl.svg?branch=master)](https://travis-ci.org/compressed/Neural.jl)
 [![Coverage Status](https://img.shields.io/coveralls/compressed/Neural.jl.svg)](https://coveralls.io/r/compressed/Neural.jl)
-[![Neural](http://pkg.julialang.org/badges/Neural_release.svg)](http://pkg.julialang.org/?pkg=Neural&ver=release)
 
+# Install
 
-# Basic Usage
+```julia
+Pkg.clone("https://github.com/compressed/Neural.jl.git")
+```
+
+# Usage
 
 To initialize a network of 2 inputs, 1 hidden layer with 3 neurons, and 2 outputs:
 
