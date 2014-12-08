@@ -12,6 +12,9 @@ before_install:
   - sudo add-apt-repository ppa:staticfloat/${JULIAVERSION} -y
   - sudo apt-get update -qq -y
   - sudo apt-get install libpcre3-dev julia -y
-  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
 script:
-  - julia --check-bounds=yes -e 'versioninfo(); Pkg.init(); Pkg.clone(pwd()); Pkg.test("Neural")'
+  - julia -e 'Pkg.init(); run(`ln -s $(pwd()) $(Pkg.dir("Neural"))`); Pkg.pin("Neural"); Pkg.resolve()'
+  - julia -e 'using Neural; @assert isdefined(:Neural); @assert typeof(Neural) === Module'
+  - julia --check-bounds=yes --code-coverage ./test/runtests.jl
+after_success:
+  - julia -e 'cd(Pkg.dir("Neural")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
