@@ -40,7 +40,6 @@ end
 
 function init_activation_nodes(network::NeuralNetwork)
     len = length(network.activation_nodes)
-    #= network.activation_nodes = Array(Array{Float64}, len) =#
     # for each layer in network, build 1.0 matrices
     for i in 1:len
         if !network.disable_bias && i < len
@@ -52,8 +51,6 @@ function init_activation_nodes(network::NeuralNetwork)
 end
 
 function init_weights(network::NeuralNetwork)
-    #= len = length(network.structure)-1 =#
-    #= network.weights = Array(Array{Float64}, len) =#
     for i in 1:length(network.weights)
         arr = Array(Float64, length(network.activation_nodes[i]), network.structure[i+1])
 
@@ -66,8 +63,6 @@ function init_weights(network::NeuralNetwork)
 end
 
 function init_last_changes(network::NeuralNetwork)
-    #= len = length(network.weights) =#
-    #= network.last_changes = Array(Array{Float64}, len) =#
     for i in 1:length(network.last_changes)
         network.last_changes[i] = [zeros(size(network.weights[i]))]
     end
