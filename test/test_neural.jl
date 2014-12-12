@@ -1,5 +1,3 @@
-using Neural
-
 net = init_network([2, 2, 2])
 
 @assert abs(net.weights[1][1]) > 0.0001

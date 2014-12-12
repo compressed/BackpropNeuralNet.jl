@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/compressed/Neural.jl.svg?branch=master)](https://travis-ci.org/compressed/Neural.jl)
-[![Coverage Status](https://img.shields.io/coveralls/compressed/Neural.jl.svg)](https://coveralls.io/r/compressed/Neural.jl)
+[![Build Status](https://travis-ci.org/compressed/BackpropNeuralNet.jl.svg?branch=master)](https://travis-ci.org/compressed/BackpropNeuralNet.jl)
+[![Coverage Status](https://img.shields.io/coveralls/compressed/BackpropNeuralNet.jl.svg)](https://coveralls.io/r/compressed/BackpropNeuralNet.jl)
 
 # Install
 
 ```julia
-Pkg.clone("https://github.com/compressed/Neural.jl.git")
+Pkg.clone("https://github.com/compressed/BackpropNeuralNet.jl.git")
 ```
 
 # Usage
@@ -12,7 +12,7 @@ Pkg.clone("https://github.com/compressed/Neural.jl.git")
 To initialize a network of 2 inputs, 1 hidden layer with 3 neurons, and 2 outputs:
 
 ```julia
-using Neural
+using BackpropNeuralNet
 
 net = init_network([2, 3, 2])
 
