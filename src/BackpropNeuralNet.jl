@@ -1,4 +1,4 @@
-module Neural
+module BackpropNeuralNet
 
 export
     # types

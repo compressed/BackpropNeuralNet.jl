@@ -1,4 +1,4 @@
-using Neural
+using BackpropNeuralNet
 using Base.Test
 
 # write your own tests here
