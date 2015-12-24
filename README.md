@@ -1,9 +1,8 @@
 [![Build Status](https://travis-ci.org/compressed/BackpropNeuralNet.jl.svg?branch=master)](https://travis-ci.org/compressed/BackpropNeuralNet.jl)
 [![Coverage Status](https://img.shields.io/coveralls/compressed/BackpropNeuralNet.jl.svg)](https://coveralls.io/r/compressed/BackpropNeuralNet.jl)
+[![BackpropNeuralNet](http://pkg.julialang.org/badges/BackpropNeuralNet_0.4.svg)](http://pkg.julialang.org/?pkg=BackpropNeuralNet)
+[![BackpropNeuralNet](http://pkg.julialang.org/badges/BackpropNeuralNet_0.5.svg)](http://pkg.julialang.org/?pkg=BackpropNeuralNet)
 
-<small>Julia Release -</small> [![BackpropNeuralNet](http://pkg.julialang.org/badges/BackpropNeuralNet_release.svg)](http://pkg.julialang.org/?pkg=BackpropNeuralNet&ver=release)
-
-<small>Julia Nightly -</small> [![BackpropNeuralNet](http://pkg.julialang.org/badges/BackpropNeuralNet_nightly.svg)](http://pkg.julialang.org/?pkg=BackpropNeuralNet&ver=nightly)
 # Install
 
 ## Stable
