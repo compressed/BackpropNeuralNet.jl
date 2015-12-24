@@ -64,7 +64,7 @@ end
 
 function init_last_changes(network::NeuralNetwork)
     for i in 1:length(network.last_changes)
-        network.last_changes[i] = [zeros(size(network.weights[i]))]
+        network.last_changes[i] = zeros(size(network.weights[i]))
     end
 end
 
@@ -155,15 +155,15 @@ end
 function check_input_dimension(network::NeuralNetwork, inputs::Vector{Float64})
     if length(inputs) != network.structure[1]
         error("Wrong number of inputs.\n",
-        strcat("Expected: ", network.structure[1], "\n"),
-        strcat("Received: ", length(inputs)))
+        string("Expected: ", network.structure[1], "\n"),
+        string("Received: ", length(inputs)))
     end
 end
 
 function check_output_dimension(network::NeuralNetwork, outputs::Vector{Float64})
     if length(outputs) != network.structure[end]
         error("Wrong number of outputs.\n",
-        strcat("Expected: ", network.structure[end], "\n"),
-        strcat("Received: ", length(outputs)))
+        string("Expected: ", network.structure[end], "\n"),
+        string("Received: ", length(outputs)))
     end
 end
