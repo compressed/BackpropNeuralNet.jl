@@ -1,4 +1,4 @@
-The FooBar.jl package is licensed under the MIT "Expat" License:
+The BackpropNeuralNet.jl package is licensed under the MIT "Expat" License:
 
 > Copyright (c) 2014: Christopher Brickley.
 >
