@@ -1,6 +1,6 @@
 language: julia
 julia:
- - release
+ - 0.4
  - nightly
 before_install:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
